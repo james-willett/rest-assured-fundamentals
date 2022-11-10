@@ -59,4 +59,13 @@ public class VideoGameTests extends VideoGameConfig {
                 .put("videogame/3")
         .then();
     }
+
+    @Test
+    public void deleteGame() {
+        given()
+                .accept("text/plain")
+        .when()
+                .delete("videogame/8")
+        .then();
+    }
 }
