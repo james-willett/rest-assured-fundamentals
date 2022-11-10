@@ -68,4 +68,13 @@ public class VideoGameTests extends VideoGameConfig {
                 .delete("videogame/8")
         .then();
     }
+
+    @Test
+    public void getSingleGame() {
+        given()
+                .pathParam("videoGameId", 8)
+        .when()
+                .get(VideoGameEndpoints.SINGLE_VIDEO_GAME)
+        .then();
+    }
 }
