@@ -30,4 +30,23 @@ public class VideoGameTests extends VideoGameConfig {
                 .post(VideoGameEndpoints.ALL_VIDEO_GAMES)
         .then();
     }
+
+    @Test
+    public void createNewGameByXML() {
+        String gameBodyXml = "<VideoGameRequest>\n" +
+                "\t<category>Platform</category>\n" +
+                "\t<name>Mario</name>\n" +
+                "\t<rating>Mature</rating>\n" +
+                "\t<releaseDate>2012-05-04</releaseDate>\n" +
+                "\t<reviewScore>85</reviewScore>\n" +
+                "</VideoGameRequest>";
+
+        given()
+                .body(gameBodyXml)
+                .contentType("application/xml")
+                .accept("application/xml")
+        .when()
+                .post(VideoGameEndpoints.ALL_VIDEO_GAMES)
+        .then();
+    }
 }
