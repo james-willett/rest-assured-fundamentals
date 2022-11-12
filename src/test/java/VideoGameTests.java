@@ -7,6 +7,7 @@ import objects.VideoGame;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.lessThan;
 
 public class VideoGameTests extends VideoGameConfig {
 
@@ -126,5 +127,17 @@ public class VideoGameTests extends VideoGameConfig {
                 .get(VideoGameEndpoints.SINGLE_VIDEO_GAME)
         .then()
                 .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("VideoGameJsonSchema.json"));
+    }
+
+    @Test
+    public void captureResponseTime() {
+        long responseTime = get(VideoGameEndpoints.ALL_VIDEO_GAMES).time();
+        System.out.println("Response time in MS: " + responseTime);
+    }
+
+    @Test
+    public void assertOnResponseTime() {
+        get(VideoGameEndpoints.ALL_VIDEO_GAMES)
+                .then().time(lessThan(1000L));
     }
 }
