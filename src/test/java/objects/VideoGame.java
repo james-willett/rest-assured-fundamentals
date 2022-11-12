@@ -8,6 +8,8 @@ public class VideoGame {
     private String releaseDate;
     private Integer reviewScore;
 
+    private Integer id;
+
     /**
      * No args constructor for use in serialization
      *
@@ -71,5 +73,9 @@ public class VideoGame {
     public void setReviewScore(Integer reviewScore) {
         this.reviewScore = reviewScore;
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
 }
