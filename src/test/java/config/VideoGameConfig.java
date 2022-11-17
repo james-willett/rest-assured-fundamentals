@@ -17,8 +17,8 @@ public class VideoGameConfig {
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setBaseUri("https://videogamedb.uk/")
                 .setBasePath("api/v2/")
-                .setContentType("application/json")
-                .addHeader("Accept", "application/json")
+                .setContentType("application/xml")
+                .addHeader("Accept", "application/xml")
                 .addFilter(new RequestLoggingFilter())
                 .addFilter(new ResponseLoggingFilter())
                 .build();
