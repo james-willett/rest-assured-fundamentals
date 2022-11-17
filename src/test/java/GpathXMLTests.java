@@ -40,4 +40,15 @@ public class GpathXMLTests extends VideoGameConfig {
 
         System.out.println(allResults.get(2).get("name").toString());
     }
+
+    @Test
+    public void getListOfXmlNodesByFindAllOnAttribute() {
+        String responseAsString = get(VideoGameEndpoints.ALL_VIDEO_GAMES).asString();
+
+        List<Node> allDrivingGames = XmlPath.from(responseAsString).get(
+                "List.item.findAll { game -> def category = game.@category; category == 'Driving' }"
+        );
+
+        System.out.println(allDrivingGames.get(0).get("name").toString());
+    }
 }
