@@ -10,8 +10,8 @@
   "labels": ["dependencies-testlabel"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["docker"],
-      "labels": ["docker-testlabel"]
+      "matchPackagePatterns": ["jackson"],
+      "labels": ["jackson-testlabel"]
     },
     {
       "matchPackagePatterns": ["maven"],
