@@ -1,4 +1,14 @@
 {
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^\\.rpl/build/install_buildx\\.sh$"],
+      "matchStrings": ["export BUILDX_VERSION=(v\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "docker/buildx",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ],  
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
